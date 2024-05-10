@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package students;
+
+service StudentService {
+    rpc CreateStudent(CreateStudentRequest) returns (CreateStudentRequest) {}
+    rpc GetStudent(GetStudentRequest) returns (CreateStudentRequest) {}
+    rpc GetRedisData(GetRedisRequest) returns (GetRedisResponse) {}
+}
+
+message CreateStudentRequest {
+    int32 rollno = 1;
+    string fullname = 2;
+    int32 standard = 3;
+    string division = 4;
+}
+
+message GetStudentRequest {
+    int32 rollno = 1;
+}
+
+message GetRedisRequest{
+    string key=1;
+}    
+
+message GetRedisResponse{
+    string data=1;
+}  
+
+
